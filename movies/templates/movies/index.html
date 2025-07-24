@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- zen-code: table.table>thead>tr>th*3 -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Stock</th>
+                <th>Daily Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in movies %}
+            <tr>
+                <td>
+                    <a href="{% url 'movies:detail' m.id %}">{{ m.title }}</a>
+                </td>
+                <td>{{ m.genre }}</td>
+                <td>{{ m.number_in_stock }}</td>
+                <td>{{ m.daily_rate }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock  %}
